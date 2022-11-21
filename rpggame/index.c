@@ -86,6 +86,13 @@ void displayStart() {
 	}
 }
 
+void gameOver() {
+	system("cls");
+	PlaySound(NULL, NULL, NULL);
+	printf("- GAME OVER -\n\n다음부턴 라면 먹을 때 걸리지 말고 먹어라~^^\n\n");
+	return 0;
+}
+
 int main() {
 	PlaySound(TEXT("yoosuk.wav"), NULL, SND_FILENAME | SND_ASYNC | SND_LOOP);
 
@@ -100,5 +107,5 @@ int main() {
 		PlaySound(TEXT("gayjoygo.wav"), NULL, SND_FILENAME | SND_ASYNC | SND_LOOP);
 		printf("gayjoygo~");
 	}
-	else return 0;
+	else gameOver();
 }
