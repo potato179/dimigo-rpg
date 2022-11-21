@@ -51,6 +51,8 @@ void displayStart() {
 
 		gotoxy(48, 23);
 		printf("¢º");
+
+		gotoxy(2, 25);
 	}
 }
 
@@ -64,6 +66,8 @@ void printBound() {
 }
 
 int main() {
+	PlaySound(TEXT("yoosuk.wav"), NULL, SND_FILENAME | SND_ASYNC | SND_LOOP);
+
 	clearCursor();
 	resizeConsole();
 	printBound();

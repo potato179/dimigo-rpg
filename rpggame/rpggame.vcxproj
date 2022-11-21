@@ -133,6 +133,9 @@
     <Media Include="..\..\..\..\OneDrive\문서\카카오톡 받은 파일\gayjoygo.wav" />
     <Media Include="..\..\..\..\OneDrive\문서\카카오톡 받은 파일\yoosuk.wav" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="resource.h" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
