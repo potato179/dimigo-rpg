@@ -52,7 +52,7 @@ void displayStart() {
 		gotoxy(48, 23);
 		printf("¢º");
 
-		gotoxy(2, 25);
+		gotoxy(1, 25);
 	}
 }
 
