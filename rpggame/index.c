@@ -5,8 +5,10 @@
 #include <windows.h>
 #include <conio.h>
 #include <time.h>
+#include "ImageLayer.h"
 
 #pragma comment(lib, "winmm.lib")
+
 
 void gotoxy(int x, int y) {
 	COORD pos = {x, y};
@@ -89,7 +91,21 @@ void displayStart() {
 void gameOver() {
 	system("cls");
 	PlaySound(NULL, NULL, NULL);
-	printf("- GAME OVER -\n\n다음부턴 라면 먹을 때 걸리지 말고 먹어라~^^\n\n");
+
+	ImageLayer imageLayer = DEFAULT_IMAGE_LAYER;
+	imageLayer.initialize(&imageLayer); //초기화
+
+	Image images[1] = {
+		{"game_over.bmp", 0, 0}
+	}; //배열의 첫 원소가 가장 아래 그려진다.
+
+	imageLayer.imageCount = 1; //images 배열의 크기보다 작거나 같아야 한다.
+	imageLayer.images = images;
+
+	imageLayer.renderAll(&imageLayer);
+
+	getchar();
+
 	return 0;
 }
 
