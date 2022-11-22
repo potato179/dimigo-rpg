@@ -96,7 +96,7 @@ void gameOver() {
 	imageLayer.initialize(&imageLayer); //초기화
 
 	Image images[1] = {
-		{"game_over.bmp", 0, 0}
+		{L"game_over.bmp", 0, 0, 1}
 	}; //배열의 첫 원소가 가장 아래 그려진다.
 
 	imageLayer.imageCount = 1; //images 배열의 크기보다 작거나 같아야 한다.
@@ -110,6 +110,7 @@ void gameOver() {
 }
 
 int main() {
+	int stage = 0;
 	PlaySound(TEXT("yoosuk.wav"), NULL, SND_FILENAME | SND_ASYNC | SND_LOOP);
 
 	clearCursor();
@@ -122,6 +123,7 @@ int main() {
 		PlaySound(NULL, NULL, NULL);
 		PlaySound(TEXT("gayjoygo.wav"), NULL, SND_FILENAME | SND_ASYNC | SND_LOOP);
 		printf("gayjoygo~");
+		while(1){}
 	}
 	else gameOver();
 }
