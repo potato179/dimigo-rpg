@@ -131,10 +131,11 @@ int main() {
 		ImageLayer imageLayer = DEFAULT_IMAGE_LAYER;
 		imageLayer.initialize(&imageLayer);
 
-		Image images[3] = {
+		Image images[4] = {
 			{L"tutorial_1.bmp", 0, 0, 1},
 			{L"tutorial_2.bmp", 0, 0, 1},
-			{L"tutorial_3.bmp", 0, 0, 1}
+			{L"tutorial_3.bmp", 0, 0, 1},
+			{L"tutorial_4.bmp", 0, 0, 1}
 		};
 
 		imageLayer.imageCount = 1;
@@ -157,6 +158,15 @@ int main() {
 		system("cls");
 
 		imageLayer.imageCount = 3;
+		imageLayer.images = images;
+
+		imageLayer.renderAll(&imageLayer);
+
+		getchar();
+
+		system("cls");
+
+		imageLayer.imageCount = 4;
 		imageLayer.images = images;
 
 		imageLayer.renderAll(&imageLayer);
