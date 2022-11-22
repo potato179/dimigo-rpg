@@ -90,7 +90,9 @@ void displayStart() {
 
 void gameOver() {
 	system("cls");
+	gotoxy(48, 23);
 	PlaySound(NULL, NULL, NULL);
+	PlaySound(TEXT("osong.wav"), NULL, SND_FILENAME | SND_ASYNC | SND_LOOP);
 
 	ImageLayer imageLayer = DEFAULT_IMAGE_LAYER;
 	imageLayer.initialize(&imageLayer); //초기화
@@ -104,6 +106,8 @@ void gameOver() {
 
 	imageLayer.renderAll(&imageLayer);
 
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 0xf0);
+	printf("아무 키를 눌러 종료");
 	getchar();
 
 	return 0;
@@ -120,10 +124,45 @@ int main() {
 
 	if (selectNum == 1) {
 		system("cls");
+		gotoxy(48, 23);
 		PlaySound(NULL, NULL, NULL);
 		PlaySound(TEXT("gayjoygo.wav"), NULL, SND_FILENAME | SND_ASYNC | SND_LOOP);
-		printf("gayjoygo~");
-		while(1){}
+
+		ImageLayer imageLayer = DEFAULT_IMAGE_LAYER;
+		imageLayer.initialize(&imageLayer);
+
+		Image images[3] = {
+			{L"tutorial_1.bmp", 0, 0, 1},
+			{L"tutorial_2.bmp", 0, 0, 1},
+			{L"tutorial_3.bmp", 0, 0, 1}
+		};
+
+		imageLayer.imageCount = 1;
+		imageLayer.images = images;
+
+		imageLayer.renderAll(&imageLayer);
+
+		printf("아무 키를 눌러 진행하기");
+		getchar();
+
+		system("cls");
+
+		imageLayer.imageCount = 2;
+		imageLayer.images = images;
+
+		imageLayer.renderAll(&imageLayer);
+
+		getchar();
+
+		system("cls");
+
+		imageLayer.imageCount = 3;
+		imageLayer.images = images;
+
+		imageLayer.renderAll(&imageLayer);
+
+		getchar();
+
 	}
 	else gameOver();
 }
